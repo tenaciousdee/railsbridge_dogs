@@ -12,6 +12,7 @@
   <% end %>
 
   <div class="field">
+    <%= f.collection_select(:breed_id, Breed.all, :id, :name) %>
     <%= f.label :name %><br>
     <%= f.text_field :name %><br>
     <%= f.label :age %><br>
