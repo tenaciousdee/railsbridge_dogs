@@ -16,6 +16,9 @@
     <%= f.text_field :name %><br>
     <%= f.label :age %><br>
     <%= f.number_field :age %>
+    <%= f.label :picture %>
+    <%= f.hidden_field(picture_cache) %>
+    <%= f.file_field(:picture) %>
   </div>
   <div class="actions">
     <%= f.submit %>
