@@ -4,7 +4,15 @@ class DogsController < ApplicationController
   # GET /dogs
   # GET /dogs.json
   def index
+    if params[sort_by]
+      @dogs = Dog.all.sort_by{|d| d.send(params[:sort_by])}
+    elsif params[:babies]
+      @dogs = Dog.all.select{|d| d.age < 5 }
+    elsif params[:pictures]
+      @dogs = Dog.all.select{|d| !(d.picture_url.blank?) }
+    else
     @dogs = Dog.all
+  end
   end
 
   # GET /dogs/1
